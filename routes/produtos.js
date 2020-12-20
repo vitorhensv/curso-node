@@ -7,10 +7,19 @@ router.get('/', (req, res, next) =>{
         mensagem: 'Retorna o produto'
     });
 });
-//POST
+
+//POST com o formato JSON
 router.post('/', (req, res, next) =>{
+
+    //O nome a ser passado para o POSTMAN é o que fica em seguida do "req.body"
+    //O "nome:" é o que será apresentado como retorno da requisição
+    const produto = {
+        nome: req.body.nome,
+        preco: req.body.preco
+    };
     res.status(201).send({
-        mensagem: 'Insere o produto'
+        mensagem: 'Inserindo um produto',
+        produtoCriado: produto
     });
 });
 
